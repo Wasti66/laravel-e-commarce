@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             
             $table->string('cus_name', 100);
-            $table->string('cus_add', 50);
+            $table->string('cus_add', 255);
             $table->string('cus_city', 50);
             $table->string('cus_state', 50);
             $table->string('cus_postcode', 50);
@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('cus_fax', 50);
 
             $table->string('ship_name', 100);
-            $table->string('ship_add', 100);
+            $table->string('ship_add', 255);
             $table->string('ship_city', 100);
             $table->string('ship_state', 100);
             $table->string('ship_postcode', 100);
