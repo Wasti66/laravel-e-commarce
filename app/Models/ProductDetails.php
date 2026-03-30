@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ProductDetails extends Model
 {
+    protected $table = 'products_details';
     public function product():BelongsTo{
         return $this->belongsTo(Product::class);
     }
