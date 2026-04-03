@@ -8,22 +8,28 @@ use Firebase\JWT\Key;
 
 class JWTToken
 {
-    public function CreateToken($userEmail):string{
+    public static function CreateToken($UserEmail,$UserID):string{
         $key = env('JWT_KEY');
         $payload = [
-            'iss' => 'laravel token',
+            'iss' => 'laravel-token',
             'iat' => time(),
             'exp' => time()+60*60,
-            'userEmail' => $userEmail
+            'UserEmail' => $UserEmail,
+            'UserID' => $UserID
         ];
         return JWT::encode($payload, $key, 'HS256');
     }
 
-    public function VerifyToken($token):string{
+    public static function ReadToken($token):string|object{
+
         try{
-            $key = env('JWT_KEY');
-            $decode = JWT::decode($token, new Key($key,'HS256'));
-            return $decode->userEmail;
+            if($token==null){
+                return "Unauthorized";
+            }else{
+                $key = env('JWT_KEY');
+                return JWT::decode($token, new Key($key,'HS256'));
+            }
+            //return $decode->UserEmail;
         }catch(Exception $e){
             return $e->getMessage();
             //return "Unauthorized";
