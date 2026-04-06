@@ -36,3 +36,10 @@ Route::get('/VerifyLogin/{UserEmail}/{OTP}',[UserController::class,'VerifyLogin'
 Route::post('/CreateProfile',[ProfileController::class,'CreateProfile'])->middleware([TokenAuthenticate::class]);
 //user profile read
 Route::get('/ReadProfile', [ProfileController::class,'ReadProfile'])->middleware([TokenAuthenticate::class]);
+
+
+//Create product review
+Route::post('/CreateProductReview', [ProductController::class,'CreateProductReview'])->middleware([TokenAuthenticate::class]);
+
+//Create Product wishes
+Route::get('/CreateWishList/{product_id}',[ProductController::class,'CreateWishList'])->middleware([TokenAuthenticate::class]);

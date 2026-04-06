@@ -22,7 +22,7 @@ class UserController extends Controller
             User::updateOrCreate(['email'=>$UserEmail], ['email'=>$UserEmail, 'otp'=>$OTP]);
             return ResponseHelper::Out('Success', "A 6 digit OPT code has been send you Email", 200);
         }catch(Exception $e){
-            return ResponseHelper::out('fail', $e->getMessage(), 200);
+            return ResponseHelper::Out('fail', $e->getMessage(), 200);
         }
     }
     public function VerifyLogin(Request $request):JsonResponse
