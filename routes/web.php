@@ -43,3 +43,7 @@ Route::post('/CreateProductReview', [ProductController::class,'CreateProductRevi
 
 //Create Product wishes
 Route::get('/CreateWishList/{product_id}',[ProductController::class,'CreateWishList'])->middleware([TokenAuthenticate::class]);
+//Product Wish List
+Route::get('/ProductWishList', [ProductController::class,'ProductWishList'])->middleware([TokenAuthenticate::class]);
+//Remove Product Whsi
+Route::get('/RemoveProductWhsi/{product_id}', [ProductController::class, 'RemoveProductWhsi'])->middleware([TokenAuthenticate::class]);
