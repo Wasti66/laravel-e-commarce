@@ -8,6 +8,7 @@ use App\Models\ProductDetails;
 use App\Models\ProductReview;
 use App\Models\ProductSlider;
 use App\Models\CustomerProfile;
+use App\Models\ProductCart;
 use App\Models\ProductWish;
 use Exception;
 use Illuminate\Http\JsonResponse;
@@ -104,4 +105,43 @@ class ProductController extends Controller
             ])->delete();
             return ResponseHelper::Out('success',$data, 200);
     }
+
+    //Create Cart List
+    public function CreateCartList(Request $request):JsonResponse{
+        try{
+            $user_id = $request->header('id');
+            $product_id = $request->input('product_id');
+            $color = $request->input('color');
+            $size = $request->input('size');
+            $qty = $request->input('qty');
+
+            $UnitPrice = 0;
+
+            $productDetails = Product::where('id','=',$product_id)->first();
+
+            if($productDetails->discount==1){
+                $UnitPrice = $productDetails->discount_price;
+            }else{
+                $UnitPrice = $productDetails->price;
+            }
+            $totalPrice = $qty*$UnitPrice;
+
+            $data = ProductCart::updateOrCreate(
+                ['user_id'=>$user_id, 'product_id'=>$product_id],
+                [
+                    'user_id'=>$user_id,
+                    'product_id'=>$product_id,
+                    'color'=>$color,
+                    'size'=>$size,
+                    'qty'=>$qty,
+                    'price'=>$totalPrice
+                ]
+            );
+            return ResponseHelper::Out('success', $data, 200);
+        }catch(Exception $e){
+            return ResponseHelper::Out('fail', $e->getMessage(), 401);
+        }
+        
+    }
+
 }
