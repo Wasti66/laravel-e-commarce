@@ -51,3 +51,7 @@ Route::get('/RemoveProductWhsi/{product_id}', [ProductController::class, 'Remove
 
 //CreateCartList
 Route::post('/CreateCartList', [ProductController::class, 'CreateCartList'])->middleware([TokenAuthenticate::class]);
+//CartList
+Route::get('/CartList',[ProductController::class, 'CartList'])->middleware([TokenAuthenticate::class]);
+//DeleteCartList
+Route::get('/DeleteCartList/{product_id}', [ProductController::class, 'DeleteCartList'])->middleware([TokenAuthenticate::class]);
