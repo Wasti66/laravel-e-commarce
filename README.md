@@ -18,5 +18,16 @@ Coming Soon...
 
 ---
 
+## ⚙️ Installation
+```bash
+git clone https://github.com/Wasti66/laravel-e-commarce.git
+cd laravel-e-commarce
+composer install
+npm install && npm run dev
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+php artisan serve
+
 ## 👨‍💻 Author
 Wazihatulla Wasti
