@@ -81,4 +81,9 @@ class InvoiceController extends Controller
         }
         
     }
+    public function ListInvoice(Request $request){
+        $user_id = $request->header('id');
+        return Invoice::where('user_id', $user_id)->get();
+        
+    }
 }
