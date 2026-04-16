@@ -86,4 +86,17 @@ class InvoiceController extends Controller
         return Invoice::where('user_id', $user_id)->get();
         
     }
+    public function InvoiceProductList(Request $request){
+        $user_id = $request->header('id');
+        $invoice_id = $request->invoice_id;
+        if(empty($invoice_id)){
+            return response()->json('Invalid Invoice ID');
+        }
+        $checking = InvoiceProduct::where('user_id', $user_id)->where('invoice_id', $invoice_id)->exists();
+        if(!$checking){
+            return response()->json(['error' => 'Invalid Invoice or Unauthorized'], 403);
+        }
+        return InvoiceProduct::where(['user_id'=>$user_id, 'invoice_id'=>$invoice_id])->with('product')->get();
+        
+    }
 }
