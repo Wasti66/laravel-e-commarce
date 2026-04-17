@@ -64,3 +64,11 @@ Route::post('/CreateInvoic', [InvoiceController::class, 'CreateInvoic'])->middle
 Route::get('/ListInvoice', [InvoiceController::class, 'ListInvoice'])->middleware([TokenAuthenticate::class]);
 //InvoiceProductList
 Route::get('/InvoiceProductList/{invoice_id}', [InvoiceController::class, 'InvoiceProductList'])->middleware([TokenAuthenticate::class]);
+
+
+//PaymentSuccess
+Route::post('/PaymentSuccess', [InvoiceController::class, 'PaymentSuccess']);
+//PaymentCancle
+Route::post('/PaymentCancel', [InvoiceController::class, 'PaymentCancel']);
+//PaymentFail
+Route::post('/PaymentFail', [InvoiceController::class, 'PaymentFail']);

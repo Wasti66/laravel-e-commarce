@@ -99,4 +99,21 @@ class InvoiceController extends Controller
         return InvoiceProduct::where(['user_id'=>$user_id, 'invoice_id'=>$invoice_id])->with('product')->get();
         
     }
+
+    public function PaymentSuccess(Request $request){
+        return SSLCommarze::InitiatSuccess($request->query('tran_id'));
+    }
+    public function PaymentCancel(Request $request){
+        return SSLCommarze::InitiatCancle($request->query('tran_id'));
+    }
+    public function PaymentFail(Request $request){
+        return SSLCommarze::InitiatFail($request->query('tran_id'));
+    }
+    public function PaymentIPN(Request $request){
+        return SSLCommarze::InitiatIPN(
+            $request->input('tran_id'),
+            $request->input('status'),
+            $request->input('val_id')
+        );
+    }
 }
