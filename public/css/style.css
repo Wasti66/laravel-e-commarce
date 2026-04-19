@@ -1,0 +1,110 @@
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+/* --- global --- */
+section{
+	padding-top:75px;
+	padding-bottom:75px;
+}
+.background-size-cover{
+	background-size:cover;
+}
+.background-repeat-no-repeat{
+	background-repeat:no-repeat;
+}
+.background-position-center{
+	background-position:center;
+}
+.background-position-right{
+	background-position:right;
+}
+.transition {
+  transition: all 0.3s ease!important;
+}
+.transition-hover:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+.swiper-button-next svg,
+.swiper-button-prev svg {
+    display: none !important;
+}
+
+/* --- hover-link --- */
+.hover-link:hover{
+    color: red!important;
+}
+.dropdown-menu-hover{
+	top:60px!important;
+}
+.dropdown-menu-hover:hover{
+	top:60px!important;
+	transition:all 0.7s;
+}
+.hover-dropdown:hover>.dropdown-menu{
+	display:block;
+}
+.hover-dropdown-100:hover>.dropdown-menu{
+	width:100%;
+}
+/* Remove all borders */
+.nav-tabs .nav-link {
+    border: none !important;
+    color: #000;
+    transition: 0.3s;
+}
+
+/* Hover effect */
+.nav-tabs .nav-link:hover {
+    color: red !important;
+    background: transparent !important;
+}
+
+/* Active tab */
+.nav-tabs .nav-link.active {
+    color: red !important;
+    background: transparent !important;
+    border: none !important;
+    font-weight: 600;
+}
+/* -- product card ----*/
+.product-card {
+    transition: 0.3s;
+}
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+.product-actions {
+    top: 10px;
+    right: -50px;
+    gap: 8px;
+}
+
+.product-card:hover .product-actions {
+    right: 10px;
+}
+.product-actions button {
+    width: 35px;
+    height: 35px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.color-btn {
+    width: 18px;
+    height: 18px;
+}
+.color-btn.active {
+    transform: scale(1.2);
+    border: 2px solid black !important;
+}
+.add-cart:hover {
+    background: red;
+}
+
+.loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s ease;
+}
