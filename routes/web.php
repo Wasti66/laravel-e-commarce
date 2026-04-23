@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 
 
 //home pages
-Route::get('/HomePage', [HomeController::class, 'HomePage']);
+Route::get('/', [HomeController::class, 'HomePage']);
 
 
 

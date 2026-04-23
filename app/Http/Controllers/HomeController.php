@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function HomePage(){
-        return view('layout.app');
+        return view('pages.home-page');
     }
 }
