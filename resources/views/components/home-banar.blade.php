@@ -32,3 +32,20 @@
         </div>
     </div>
 </section>
+<!-- home banar -->
+<script>
+    var swiper = new Swiper(".banar", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    effect: "fade",
+    loop: true,
+        autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    });
+</script>

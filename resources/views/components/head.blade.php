@@ -19,4 +19,6 @@
     <script src="{{ asset('js/jquery.min.js') }}"></script> 
     <!-- axios -->
     <script src="{{ asset('js/axios.min.js') }}"></script>
+    <!-- swiper-bundle.min.js -->
+    <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
 </head>
