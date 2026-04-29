@@ -108,3 +108,12 @@ section{
     visibility: hidden;
     transition: all 0.6s ease;
 }
+/* --- ----*/
+.categoryItem-Hover:hover{
+    background-color: #d7caca52;
+}
+
+.topcatagoryCard .topcatagoryCard-hover:hover{
+    opacity: 100!important;
+    background-color: #adb5bda6;
+}

@@ -79,9 +79,7 @@
                         <small>Category</small>
                     </p>
                     ${columnItems.map(item => `
-                        <a class="ps-0 d-block pb-sm-2 pb-1 text-decoration-none text-black-50 text-goldren-300-hover fw-semibold" href="#">
-                            <small>${item.categoryName}</small>
-                        </a>
+                        <a class="d-block pb-2 text-decoration-none text-black-50 hover-link transition fw-semibold categoryItem-Hover" href="#">${item.categoryName}</a>
                     `).join('')}
                 </div>
             `;
