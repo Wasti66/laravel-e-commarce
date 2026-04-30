@@ -5,5 +5,6 @@
     @include('components.sub-banar')
     @include('components.topCategory')
     @include('components.exclusive-Products')
+    @include('components.TopBrands')
     @include('components.footer')
 @endsection

@@ -1,15 +1,15 @@
-<section class="pb-0">
+<section class="pt-0">
     <div class="container">
         <div class="row justify-content-center text-center mb-5">
             <div class="col-md-8">
-                <h2 class="fw-bold mb-2">Top Category</h2>
+                <h2 class="fw-bold mb-2">Top Brands</h2>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum doloribus velit qui repellendus, quasi distinctio.</p>
             </div>
         </div>
         <!-- top categories -->
         <div class="swiper-container-wrapper position-relative w-100">
-            <div class="swiper topCategories">
-                <div class="swiper-wrapper" id="TopCategory">
+            <div class="swiper TopBrands">
+                <div class="swiper-wrapper" id="TopBrands">
 
                 </div>
             </div>
@@ -26,7 +26,7 @@
 </section>
 
 <script>
-    var swiper = new Swiper(".topCategories", {
+    var swiper = new Swiper(".TopBrands", {
         slidesPerView: 1,
         spaceBetween: 20,
         navigation: {
@@ -48,20 +48,20 @@
             },
         },
     });
-    TopCatagories()
-    async function TopCatagories(){
-        let res = await axios.get("/CategoryList");
-         $("#TopCategory").empty()
+    topBrands()
+    async function topBrands(){
+        let res = await axios.get("/BrandList");
+         $("#TopBrands").empty()
          res.data['data'].forEach((item)=>{
             let EachItem = `<div class="swiper-slide">
                         <a href="#" class="overflow-hidden nav-link topcatagoryCard">
-                            <img class="w-100 d-block rounded-circle shadow-sm border" src="${item['categoryImg']}" alt="">
-                            <div class="card-img-overlay topcatagoryCard-hover opacity-0 d-flex justify-content-center align-items-center rounded-circle transition">
-                                <p class="text-danger fw-medium">${item['categoryName']}</p>
+                            <img class="w-100 d-block rounded-circle shadow-sm border" src="${item['brandImg']}" alt="">
+                            <div class="card-img-overlay topcatagoryCard-hover opacity-0 d-flex justify-content-center align-items-center rounded-circle transition h-150 w-150">
+                                <p class="text-danger fw-medium">${item['brandName']}</p>
                             </div>
                         </a>
                     </div>`
-            $("#TopCategory").append(EachItem)    
+            $("#TopBrands").append(EachItem)    
             
          })
     }

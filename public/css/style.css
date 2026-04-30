@@ -31,8 +31,16 @@ section{
 .swiper-button-prev svg {
     display: none !important;
 }
-
 /* --- hover-link --- */
+.navbar.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    z-index: 999;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
 .hover-link:hover{
     color: red!important;
 }
