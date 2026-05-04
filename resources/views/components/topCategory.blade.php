@@ -48,7 +48,6 @@
             },
         },
     });
-    TopCatagories()
     async function TopCatagories(){
         let res = await axios.get("/CategoryList");
          $("#TopCategory").empty()

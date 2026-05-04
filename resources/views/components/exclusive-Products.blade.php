@@ -56,7 +56,6 @@
     </div>
 </section>
 <script>
-    Top();
     async function Top(){
         let res = await axios.get("/ListProductByRemark/top");
         $('#TopProduct').empty();
@@ -106,8 +105,7 @@
                         </div>`
             $('#TopProduct').append(EachItem);        
         })
-    }
-    Popular()
+    } 
     async function Popular(){
         let res = await axios.get("/ListProductByRemark/popular");
         $("#popularRow").empty();
@@ -158,7 +156,6 @@
             $("#popularRow").append(EachItem);
         })
     }
-    New()
     async function New(){
         let res = await axios.get("/ListProductByRemark/new");
         $("#newRow").empty();
@@ -209,7 +206,6 @@
             $('#newRow').append(EachItem);        
         })
     }
-    Special()
     async function Special(){
         let res = await axios.get("/ListProductByRemark/special");
         $("#SpecialRow").empty();
@@ -260,7 +256,6 @@
             $('#SpecialRow').append(EachItem);        
         })
     }
-    Trending()
     async function Trending(){
         let res = await axios.get("/ListProductByRemark/trending");
         $("#TrendingRow").empty();
@@ -311,7 +306,6 @@
             $('#TrendingRow').append(EachItem);        
         })
     }
-    Regular()
     async function Regular(){
         let res = await axios.get("/ListProductByRemark/regular");
         $("#RegularRow").empty();

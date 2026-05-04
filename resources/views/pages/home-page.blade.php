@@ -7,4 +7,17 @@
     @include('components.exclusive-Products')
     @include('components.TopBrands')
     @include('components.footer')
+    <script>
+        (async ()=>{
+            await Category();
+            await Banar();
+            TopCatagories();
+            Top();
+            Popular();
+            New();
+            Special();
+            Trending();
+            Regular();
+        })()
+    </script>
 @endsection

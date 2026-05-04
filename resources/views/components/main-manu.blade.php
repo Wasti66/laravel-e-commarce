@@ -57,8 +57,6 @@
     </div>
 </nav>
 <script>
-    Category();
-
     async function Category() {
         let res = await axios.get("/CategoryList");
 
