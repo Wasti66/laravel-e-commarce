@@ -11,6 +11,7 @@
         (async ()=>{
             await Category();
             await Banar();
+            $(".preloader").delay(400).fadeOut(400).addClass('loaded');
             TopCatagories();
             Top();
             Popular();
