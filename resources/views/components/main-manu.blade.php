@@ -9,7 +9,7 @@
             <ul class="navbar-nav">
                 <!-- home -->
                 <li class="nav-item">
-                    <a href="#home" class="text-body fw-medium nav-link transition transition-hover hover-link">Home</a>
+                    <a href="{{ url('/') }}" class="text-body fw-medium nav-link transition transition-hover hover-link">Home</a>
                 </li>
                 <!-- about -->
                 <li class="nav-item">
@@ -77,7 +77,7 @@
                         <small>Category</small>
                     </p>
                     ${columnItems.map(item => `
-                        <a class="d-block pb-2 text-decoration-none text-black-50 hover-link transition fw-semibold categoryItem-Hover" href="#">${item.categoryName}</a>
+                        <a class="d-block pb-2 text-decoration-none text-black-50 hover-link transition fw-semibold categoryItem-Hover" href="/by-category?id=${item.id}">${item.categoryName}</a>
                     `).join('')}
                 </div>
             `;
