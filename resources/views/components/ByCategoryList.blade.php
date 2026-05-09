@@ -3,7 +3,7 @@
         <div class="row">
             <!-- -->
             <div class="col-5">
-                <h3 class="fw-bold">Products</h3>
+                <h3 class="fw-bold">Category: <span id="CategorName"></span></h3>
             </div>
             <!-- breadcrumb -->
             <div class="col-7">
@@ -88,8 +88,11 @@
                             </div>
                         </div>`
                 $("#byCategoryList").append(EachItem);  
+                $('#CategorName').text(res.data['data'][0]['category']['categoryName'])
             });
         }
+
+        
         
     }
 </script>

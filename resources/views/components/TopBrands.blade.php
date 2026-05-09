@@ -54,7 +54,7 @@
          $("#TopBrands").empty()
          res.data['data'].forEach((item)=>{
             let EachItem = `<div class="swiper-slide">
-                        <a href="#" class="overflow-hidden nav-link topcatagoryCard">
+                        <a href="/by-brand?id=${item['id']}" class="overflow-hidden nav-link topcatagoryCard">
                             <img class="w-100 d-block rounded-circle shadow-sm border" src="${item['brandImg']}" alt="">
                             <div class="card-img-overlay topcatagoryCard-hover opacity-0 d-flex justify-content-center align-items-center rounded-circle transition h-150 w-150">
                                 <p class="text-danger fw-medium">${item['brandName']}</p>
