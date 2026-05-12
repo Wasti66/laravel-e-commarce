@@ -13,7 +13,7 @@
                 </li>
                 <!-- about -->
                 <li class="nav-item">
-                    <a href="#home" class="text-body fw-medium nav-link transition transition-hover hover-link">About</a>
+                    <a href="/policy?type=about" class="text-body fw-medium nav-link transition transition-hover hover-link">About</a>
                 </li>
                 <!-- product -->
                 <li class="nav-item hover-dropdown hover-dropdown-100">

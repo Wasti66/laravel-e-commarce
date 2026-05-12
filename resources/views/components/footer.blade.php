@@ -31,19 +31,16 @@
                         <h5 class="text-white fw-medium mb-4">Useful Links</h5> 
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a href="#home" class="text-white fw-medium nav-link transition transition-hover hover-link">About Us</a>
+                                <a href="policy?type=about" class="text-white fw-medium nav-link transition transition-hover hover-link">About Us</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#home" class="text-white fw-medium nav-link transition transition-hover hover-link">Faq</a>
+                                <a href="policy?type=refund" class="text-white fw-medium nav-link transition transition-hover hover-link">Refund</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#home" class="text-white fw-medium nav-link transition transition-hover hover-link">Location</a>
+                                <a href="policy?type=terms" class="text-white fw-medium nav-link transition transition-hover hover-link">Terms</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#home" class="text-white fw-medium nav-link transition transition-hover hover-link">Affiliates</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#home" class="text-white fw-medium nav-link transition transition-hover hover-link">Contact</a>
+                                <a href="policy?type=how to buy" class="text-white fw-medium nav-link transition transition-hover hover-link">How to buy</a>
                             </li>
                         </ul> 
                     </div>
@@ -52,19 +49,10 @@
                         <h5 class="text-white fw-medium mb-4">Category</h5> 
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a href="#home" class="text-white fw-medium nav-link transition transition-hover hover-link">Man</a>
+                                <a href="policy?type=contact" class="text-white fw-medium nav-link transition transition-hover hover-link">Contact</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#home" class="text-white fw-medium nav-link transition transition-hover hover-link">Women</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#home" class="text-white fw-medium nav-link transition transition-hover hover-link">Kids</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#home" class="text-white fw-medium nav-link transition transition-hover hover-link">Best Seller</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#home" class="text-white fw-medium nav-link transition transition-hover hover-link">New Arrivals</a>
+                                <a href="policy?type=complain" class="text-white fw-medium nav-link transition transition-hover hover-link">Complain</a>
                             </li>
                         </ul> 
                     </div>
