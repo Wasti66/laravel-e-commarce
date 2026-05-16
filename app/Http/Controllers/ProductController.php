@@ -16,6 +16,10 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    public function detailsPage(){
+        return view('pages.details-page');
+    }
+    
     //ListProductByCategory
     public function ListProductByCategory(Request $request):JsonResponse{
         $data = Product::where('category_id', $request->id)->with('brand','category')->get();
