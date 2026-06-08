@@ -31,7 +31,7 @@
                         <div class="col-lg-7 col-md-8 col-12">
                             <h5 class="fw-medium mb-3">${item['short_des']}</h5>  
                             <h1 class="fw-bold fs-1 mb-3">${item['title']}</h1>
-                            <a href="" class="btn btn-outline-danger btn-lg">Shop Now</a>   
+                            <a href="/details?id=${item['product_id']}" class="btn btn-outline-danger btn-lg">Shop Now</a>   
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
             effect: "fade",
             loop: true,
             autoplay: {
-                delay: 3000,
+                delay: 4000,
                 disableOnInteraction: false,
             },
             navigation: {

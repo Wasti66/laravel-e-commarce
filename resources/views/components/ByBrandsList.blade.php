@@ -63,7 +63,7 @@
                                     SALE
                                 </span>
 
-                                <a href="#">
+                                <a href="/details?id=${item['id']}">
                                     <img class="img-fluid object-fit-cover"
                                     src="${item['image']}"
                                     alt="product">
@@ -71,7 +71,7 @@
 
                                 <!-- ACTION ICONS -->
                                 <div class="product-actions position-absolute d-flex flex-column transition">
-                                    <button class="border-0 rounded-circle bg-white">🛒</button>
+                                    <a href="/details?id=${item['id']}" class="nav-link rounded-circle bg-white">🛒</a>
                                     <button class="border-0 rounded-circle bg-white">🔀</button>
                                     <button class="border-0 rounded-circle bg-white">🔍</button>
                                     <button class="border-0 rounded-circle bg-white">❤️</button>
@@ -83,7 +83,7 @@
                             <div class="card-body">
 
                                 <h5 class="fw-bold">
-                                    <a href="#" class="nav-link">
+                                    <a href="/details?id=${item['id']}" class="nav-link">
                                         ${item['title']}
                                     </a>
                                 </h5>

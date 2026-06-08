@@ -66,14 +66,14 @@
                                 <!-- IMAGE -->
                                 <div class="position-relative overflow-hidden">
                                     <span class="badge text-bg-danger position-absolute px-2 py-2 m-3">SALE</span>
-                                    <a href="#">
+                                    <a href="/details?id=${item['id']}">
                                         <img class="img-fluid object-fit-cover" src="${item['image']}" alt="product">
                                     </a>
                                     
 
                                     <!-- ACTION ICONS -->
                                     <div class="product-actions position-absolute d-flex flex-column transition">
-                                        <button class="border-0 rounded-circle bg-white">🛒</button>
+                                        <a href="/details?id=${item['id']}" class="nav-link rounded-circle bg-white">🛒</a>
                                         <button class="border-0 rounded-circle bg-white">🔀</button>
                                         <button class="border-0 rounded-circle bg-white">🔍</button>
                                         <button class="border-0 rounded-circle bg-white">❤️</button>
@@ -83,7 +83,7 @@
                                 <!-- BODY -->
                                 <div class="card-body">
                                     <h5 class="fw-bold">
-                                        <a href="#" class="nav-link">${item['title']}</a>
+                                        <a href="/details?id=${item['id']}" class="nav-link">${item['title']}</a>
                                     </h5>
                                     <p class="text-muted small">${item['short_des']}</p>
 
@@ -116,14 +116,14 @@
                             <!-- IMAGE -->
                             <div class="position-relative overflow-hidden">
                                 <span class="badge text-bg-danger position-absolute px-2 py-2 m-3">SALE</span>
-                                <a href="#">
+                                <a href="/details?id=${item['id']}">
                                     <img class="img-fluid object-fit-cover" src="${item['image']}" alt="product">
                                 </a>
                                 
 
                                 <!-- ACTION ICONS -->
                                 <div class="product-actions position-absolute d-flex flex-column transition">
-                                    <button class="border-0 rounded-circle bg-white">🛒</button>
+                                    <a href="/details?id=${item['id']}" class="nav-link rounded-circle bg-white">🛒</a>
                                     <button class="border-0 rounded-circle bg-white">🔀</button>
                                     <button class="border-0 rounded-circle bg-white">🔍</button>
                                     <button class="border-0 rounded-circle bg-white">❤️</button>
@@ -133,7 +133,7 @@
                             <!-- BODY -->
                             <div class="card-body">
                                 <h5 class="fw-bold">
-                                    <a href="#" class="nav-link">${item['title']}</a>
+                                    <a href="/details?id=${item['id']}" class="nav-link">${item['title']}</a>
                                 </h5>
                                 <p class="text-muted small">${item['short_des']}</p>
 
@@ -166,14 +166,14 @@
                                 <!-- IMAGE -->
                                 <div class="position-relative overflow-hidden">
                                     <span class="badge text-bg-danger position-absolute px-2 py-2 m-3">SALE</span>
-                                    <a href="#">
+                                    <a href="/details?id=${item['id']}">
                                         <img class="img-fluid object-fit-cover" src="${item['image']}" alt="product">
                                     </a>
                                     
 
                                     <!-- ACTION ICONS -->
                                     <div class="product-actions position-absolute d-flex flex-column transition">
-                                        <button class="border-0 rounded-circle bg-white">🛒</button>
+                                        <a href="/details?id=${item['id']}" class="border-0 rounded-circle bg-white">🛒</a>
                                         <button class="border-0 rounded-circle bg-white">🔀</button>
                                         <button class="border-0 rounded-circle bg-white">🔍</button>
                                         <button class="border-0 rounded-circle bg-white">❤️</button>
@@ -183,7 +183,7 @@
                                 <!-- BODY -->
                                 <div class="card-body">
                                     <h5 class="fw-bold">
-                                        <a href="#" class="nav-link">${item['title']}</a>
+                                        <a href="/details?id=${item['id']}" class="nav-link">${item['title']}</a>
                                     </h5>
                                     <p class="text-muted small">${item['short_des']}</p>
 
@@ -216,14 +216,14 @@
                                 <!-- IMAGE -->
                                 <div class="position-relative overflow-hidden">
                                     <span class="badge text-bg-danger position-absolute px-2 py-2 m-3">SALE</span>
-                                    <a href="#">
+                                    <a href="/details?id=${item['id']}">
                                         <img class="img-fluid object-fit-cover" src="${item['image']}" alt="product">
                                     </a>
                                     
 
                                     <!-- ACTION ICONS -->
                                     <div class="product-actions position-absolute d-flex flex-column transition">
-                                        <button class="border-0 rounded-circle bg-white">🛒</button>
+                                        <a href="/details?id=${item['id']}" class="nav-link rounded-circle bg-white">🛒</a>
                                         <button class="border-0 rounded-circle bg-white">🔀</button>
                                         <button class="border-0 rounded-circle bg-white">🔍</button>
                                         <button class="border-0 rounded-circle bg-white">❤️</button>
@@ -233,7 +233,7 @@
                                 <!-- BODY -->
                                 <div class="card-body">
                                     <h5 class="fw-bold">
-                                        <a href="#" class="nav-link">${item['title']}</a>
+                                        <a href="/details?id=${item['id']}" class="nav-link">${item['title']}</a>
                                     </h5>
                                     <p class="text-muted small">${item['short_des']}</p>
 
@@ -266,14 +266,14 @@
                                 <!-- IMAGE -->
                                 <div class="position-relative overflow-hidden">
                                     <span class="badge text-bg-danger position-absolute px-2 py-2 m-3">SALE</span>
-                                    <a href="#">
+                                    <a href="/details?id=${item['id']}">
                                         <img class="img-fluid object-fit-cover" src="${item['image']}" alt="product">
                                     </a>
                                     
 
                                     <!-- ACTION ICONS -->
                                     <div class="product-actions position-absolute d-flex flex-column transition">
-                                        <button class="border-0 rounded-circle bg-white">🛒</button>
+                                        <a href="/details?id=${item['id']}" class="nav-link rounded-circle bg-white">🛒</a>
                                         <button class="border-0 rounded-circle bg-white">🔀</button>
                                         <button class="border-0 rounded-circle bg-white">🔍</button>
                                         <button class="border-0 rounded-circle bg-white">❤️</button>
@@ -283,7 +283,7 @@
                                 <!-- BODY -->
                                 <div class="card-body">
                                     <h5 class="fw-bold">
-                                        <a href="#" class="nav-link">${item['title']}</a>
+                                        <a href="/details?id=${item['id']}" class="nav-link">${item['title']}</a>
                                     </h5>
                                     <p class="text-muted small">${item['short_des']}</p>
 
@@ -316,14 +316,14 @@
                                 <!-- IMAGE -->
                                 <div class="position-relative overflow-hidden">
                                     <span class="badge text-bg-danger position-absolute px-2 py-2 m-3">SALE</span>
-                                    <a href="#">
+                                    <a href="/details?id=${item['id']}">
                                         <img class="img-fluid object-fit-cover" src="${item['image']}" alt="product">
                                     </a>
                                     
 
                                     <!-- ACTION ICONS -->
                                     <div class="product-actions position-absolute d-flex flex-column transition">
-                                        <button class="border-0 rounded-circle bg-white">🛒</button>
+                                        <a href="/details?id=${item['id']}" class="nav-link rounded-circle bg-white">🛒</a>
                                         <button class="border-0 rounded-circle bg-white">🔀</button>
                                         <button class="border-0 rounded-circle bg-white">🔍</button>
                                         <button class="border-0 rounded-circle bg-white">❤️</button>
@@ -333,7 +333,7 @@
                                 <!-- BODY -->
                                 <div class="card-body">
                                     <h5 class="fw-bold">
-                                        <a href="#" class="nav-link">${item['title']}</a>
+                                        <a href="/details?id=${item['id']}" class="nav-link">${item['title']}</a>
                                     </h5>
                                     <p class="text-muted small">${item['short_des']}</p>
 
