@@ -27,16 +27,14 @@
           <div class="col-md-6">
              <!-- product title and price -->
              <div class="mb-4">
-                <h1 id="pr_title" class="mb-2">Title</h1>
-                <h4 id="pr_price">Price</h4>
+                <h1 id="pr_title" class="mb-2"></h1>
+                <h4 id="pr_price" class="text-danger"></h4>
              </div>
-             <p id="pr_des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum illo suscipit nostrum sapiente quasi adipisci voluptatum vitae molestiae facere. Tenetur omnis iste, voluptatem est officia doloremque quod qui ad voluptatibus!</p>
+             <p id="pr_des"></p>
              <!-- size -->
-             <label for="size">Size</label>
-             <select name="size" id="size" class="form-control"></select>
+             <select name="size" id="pr_size" class="form-control mb-3"></select>
              <!-- color -->
-             <label for="color">Color</label>
-             <select name="color" id="color" class="form-control"></select>
+             <select name="color" id="pr_color" class="form-control"></select>
              <!-- quantity -->
              <div class="d-flex flex-wrap align-items-center gap-3 mt-4">
 
@@ -67,27 +65,70 @@
 <script>
    
 
-    document.getElementById('product_img1').src = "images/p-1.jpg";
-    document.getElementById('img1').src = "images/p-1.jpg";
-    document.getElementById('img2').src = "images/p-2.jpg";
-    document.getElementById('img3').src = "images/p-3.jpg";
-    document.getElementById('img4').src = "images/p-4.jpg";
-
-   
-
-    $('#img1').on('click', function () {
-        $('#product_img1').attr('src', 'images/p-1.jpg');
+    $('.plus').on('click', function (){
+        if($(this).prev().val()){
+            $(this).prev().val(+$(this).prev().val() + 1);
+        }
     });
+    $('.minus').on('click', function (){
+        if($(this).next().val() > 1){
+            if ($(this).next().val() > 1) $(this).next().val(+$(this).next().val() - 1);
+        }
+    })
 
-    $('#img2').on('click', function () {
-        $('#product_img1').attr('src', 'images/p-2.jpg');
-    });
+    let searchParams = new URLSearchParams(window.location.search);
+    let id = searchParams.get('id');
 
-    $('#img3').on('click', function () {
-        $('#product_img1').attr('src', 'images/p-3.jpg');
-    });
+    productDetails()
+    async function productDetails(){
+        let res = await axios.get("/ProductDetailsById/"+id);
 
-    $('#img4').on('click', function () {
-        $('#product_img1').attr('src', 'images/p-4.jpg');
-    });
+
+        let Details = res.data['data'];
+
+        document.getElementById('product_img1').src = Details[0]['img1'];
+        document.getElementById('img1').src = Details[0]['img1'];
+        document.getElementById('img2').src = Details[0]['img2'];
+        document.getElementById('img3').src = Details[0]['img3'];
+        document.getElementById('img4').src = Details[0]['img4'];
+
+        document.getElementById('pr_title').innerText=Details[0]['product']['title'];
+        document.getElementById('pr_price').innerText=`$ ${Details[0]['product']['price']}`;
+        document.getElementById('pr_des').innerText=Details[0]['des'];
+
+        // Product Size & Color
+        let size= Details[0]['size'].split(',');
+        let color=Details[0]['color'].split(',');
+
+        let SizeOption=`<option value=''>Choose Size</option>`;
+        $("#pr_size").append(SizeOption);
+        size.forEach((item)=>{
+            let option=`<option value='${item}'>${item}</option>`;
+            $("#pr_size").append(option);
+        })
+
+        let ColorOption=`<option value=''>Choose Color</option>`;
+        $("#pr_color").append(ColorOption);
+        color.forEach((item)=>{
+            let option=`<option value='${item}'>${item}</option>`;
+            $("#pr_color").append(option);
+        })
+
+        $('#img1').on('click', function() {
+            $('#product_img1').attr('src', Details[0]['img1']);
+        });
+        $('#img2').on('click', function() {
+            $('#product_img1').attr('src', Details[0]['img2']);
+        });
+        $('#img3').on('click', function() {
+            $('#product_img1').attr('src', Details[0]['img3']);
+        });
+        $('#img4').on('click', function() {
+            $('#product_img1').attr('src', Details[0]['img4']);
+        });
+        
+    }
+
+    
+    
 </script>
