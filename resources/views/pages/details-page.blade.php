@@ -6,7 +6,8 @@
     @include('components.footer')
     <script>
         (async ()=>{
-                await Category();
+                productDetails();
+                Category();
                 $(".preloader").delay(400).fadeOut(400).addClass('loaded');
             })()
     </script>

@@ -42,19 +42,19 @@
                 <div class="input-group" style="width: 140px;">
                     <button class="btn btn-outline-secondary minus" type="button">-</button>
 
-                    <input type="text" class="form-control text-center" value="1">
+                    <input type="text" class="form-control text-center" id="pr_qty" value="1">
 
                     <button class="btn btn-outline-secondary plus" type="button">+</button>
                 </div>
 
                 <!-- Add to Cart -->
-                <button class="btn btn-danger px-4">
+                <button onclick="AddToCart()" class="btn btn-danger px-4">
                     <i class="bi bi-cart-fill me-2"></i>
                     Add to Cart
                 </button>
 
                 <!-- Wishlist -->
-                <button class="btn btn-outline-danger">❤️</button>
+                <button onclick="AddToWishList()" class="btn btn-outline-danger">❤️</button>
 
              </div>
 
@@ -79,11 +79,8 @@
     let searchParams = new URLSearchParams(window.location.search);
     let id = searchParams.get('id');
 
-    productDetails()
     async function productDetails(){
         let res = await axios.get("/ProductDetailsById/"+id);
-
-
         let Details = res.data['data'];
 
         document.getElementById('product_img1').src = Details[0]['img1'];
@@ -128,7 +125,41 @@
         });
         
     }
+    
+    async function AddToCart(){
+        try{
+            let pr_size = document.getElementById('pr_size').value;
+            let pr_color = document.getElementById('pr_color').value;
+            let pr_qty = document.getElementById('pr_qty').value;
+            
+            if(pr_size.length===0){
+                alert('Size Required');
+            }else if(pr_color.length===0){
+                alert('Color Required');
+            }else if(pr_qty===0){
+                alert('Quentity Required');
+            }else{
+                let res = await axios.post("/CreateCartList",{
+                    "product_id": id,
+                    "color": pr_color,
+                    "size": pr_size,
+                    "qty": pr_qty
+                });
+            }
+        }catch(e){
+            window.location.href="/Login"
+        }
+    }
 
-    
-    
+    async function AddToWishList(){
+        try{
+            let res = await axios.get("/CreateWishList/"+id);
+        }catch(e){
+            if(e.response.status === 401){
+                window.location.href="/Login"
+            }
+        }
+        
+    }
+
 </script>

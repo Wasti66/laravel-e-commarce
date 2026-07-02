@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg py-4">
     <div class="container">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="{{ url('/') }}">Navbar</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -37,6 +37,10 @@
                 <!-- blog -->
                 <li class="nav-item">
                     <a href="#home" class="text-body fw-medium nav-link transition transition-hover hover-link">Contact Us</a>
+                </li>
+                <!-- login -->
+                <li class="nav-item">
+                    <a href="{{ url("/Login") }}" class="text-body fw-medium nav-link transition transition-hover hover-link">Login</a>
                 </li>
                 <!-- search option -->
                 <li class="nav-link" id="searchToggle" style="cursor:pointer;">
