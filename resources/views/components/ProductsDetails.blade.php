@@ -126,40 +126,48 @@
         
     }
     
-    async function AddToCart(){
-        try{
+    async function AddToCart() {
+        try {
             let pr_size = document.getElementById('pr_size').value;
             let pr_color = document.getElementById('pr_color').value;
             let pr_qty = document.getElementById('pr_qty').value;
             
-            if(pr_size.length===0){
+            if (pr_size.trim().length === 0) {
                 alert('Size Required');
-            }else if(pr_color.length===0){
+            } else if (pr_color.trim().length === 0) {
                 alert('Color Required');
-            }else if(pr_qty===0){
-                alert('Quentity Required');
-            }else{
-                let res = await axios.post("/CreateCartList",{
-                    "product_id": id,
+            } else if (pr_qty.trim().length === 0 || Number(pr_qty) <= 0) {
+                alert('Quantity Required');
+            } else {
+                let res = await axios.post("/CreateCartList", {
+                    "product_id": id, 
                     "color": pr_color,
                     "size": pr_size,
                     "qty": pr_qty
                 });
+                
             }
-        }catch(e){
-            window.location.href="/Login"
-        }
+        } catch (e) {
+            if (e.response?.status === 401) {
+                sessionStorage.setItem('last_location', window.location.href);
+                window.location.href = "/Login";
+            } else {
+                alert('Something went wrong. Please try again.');
+            }
     }
+}
 
-    async function AddToWishList(){
-        try{
-            let res = await axios.get("/CreateWishList/"+id);
-        }catch(e){
-            if(e.response.status === 401){
-                window.location.href="/Login"
-            }
+async function AddToWishList() {
+    try {
+        let res = await axios.get("/CreateWishList/" + id);
+    } catch (e) {
+        if (e.response?.status === 401) {
+            sessionStorage.setItem('last_location', window.location.href);
+            window.location.href = "/Login";
+        } else {
+            alert('Failed to add to wishlist');
         }
-        
     }
+}
 
 </script>

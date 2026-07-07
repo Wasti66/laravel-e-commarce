@@ -11,16 +11,25 @@
 </section>
 
 <script>
-    async function Login(){
-        let email = document.getElementById('email').value;
-        if(email.length===0){
-            alert('Email Required');
-        }else{
-            let res = await axios.get("/UserLogin/"+email)
-            if(res.status===200){
-                sessionStorage.setItem('email',email);
-                window.location.href="/verify";
+    async function Login() {
+    let email = document.getElementById('email').value;
+    if (email.trim().length === 0) {
+        alert('Email Required');
+    } else {
+        $(".preloader").delay(400).fadeIn(400).removeClass('loaded');
+        try {
+            let res = await axios.get("/UserLogin/" + email);
+            if (res.status === 200) {
+                sessionStorage.setItem('email', email);
+                window.location.href = "/verify";
+            } else {
+                $(".preloader").delay(400).fadeOut(400).addClass('loaded');
+                alert('Login Failed');
             }
+        } catch (e) {
+            $(".preloader").delay(400).fadeOut(400).addClass('loaded');
+            alert('Login Failed. Please try again.');
         }
     }
+}
 </script>

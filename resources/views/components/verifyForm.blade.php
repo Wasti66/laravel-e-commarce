@@ -11,15 +11,30 @@
 </section>
 
 <script>
-    async function Verify(){
+    async function Verify() {
         let code = document.getElementById('code').value;
         let email = sessionStorage.getItem('email');
-        if(code.length===0){
+        if (code.trim().length === 0) {
             alert('Invalid code');
-        }else{
-            let res = await axios.get("/VerifyLogin/"+email+"/"+code)
-            if(res.status===200){
-                
+        } else {
+            $(".preloader").delay(400).fadeIn(400).removeClass('loaded');
+            try {
+                let res = await axios.get("/VerifyLogin/" + email + "/" + code);
+                if (res.status === 200) {
+                    if (sessionStorage.getItem('last_location')) {
+                        let lastLoc = sessionStorage.getItem('last_location');
+                        sessionStorage.removeItem('last_location'); // Clear it after use
+                        window.location.href = lastLoc; // Fixed 'herf' to 'href'
+                    } else {
+                        window.location.href = "/";
+                    }
+                } else {
+                    $(".preloader").delay(400).fadeOut(400).addClass('loaded');
+                    alert('Verification Failed');
+                }
+            } catch (e) {
+                $(".preloader").delay(400).fadeOut(400).addClass('loaded');
+                alert('Verification Failed. Please try again.');
             }
         }
     }
