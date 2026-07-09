@@ -127,45 +127,54 @@
     }
     
     async function AddToCart() {
-        try {
-            let pr_size = document.getElementById('pr_size').value;
-            let pr_color = document.getElementById('pr_color').value;
-            let pr_qty = document.getElementById('pr_qty').value;
-            
-            if (pr_size.trim().length === 0) {
-                alert('Size Required');
-            } else if (pr_color.trim().length === 0) {
-                alert('Color Required');
-            } else if (pr_qty.trim().length === 0 || Number(pr_qty) <= 0) {
-                alert('Quantity Required');
-            } else {
-                let res = await axios.post("/CreateCartList", {
-                    "product_id": id, 
-                    "color": pr_color,
-                    "size": pr_size,
-                    "qty": pr_qty
-                });
+            try {
+                let pr_size = document.getElementById('pr_size').value;
+                let pr_color = document.getElementById('pr_color').value;
+                let pr_qty = document.getElementById('pr_qty').value;
                 
-            }
-        } catch (e) {
-            if (e.response?.status === 401) {
-                sessionStorage.setItem('last_location', window.location.href);
-                window.location.href = "/Login";
-            } else {
-                alert('Something went wrong. Please try again.');
-            }
+                if (pr_size.trim().length === 0) {
+                    alert('Size Required');
+                } else if (pr_color.trim().length === 0) {
+                    alert('Color Required');
+                } else if (pr_qty.trim().length === 0 || Number(pr_qty) <= 0) {
+                    alert('Quantity Required');
+                } else {
+                    $(".preloader").delay(400).fadeIn(400).removeClass('loaded');
+                    let res = await axios.post("/CreateCartList", {
+                        "product_id": id, 
+                        "color": pr_color,
+                        "size": pr_size,
+                        "qty": pr_qty
+                    });
+                    $(".preloader").delay(400).fadeOut(400).addClass('loaded');
+                    if(res.status === 200){
+                        alert('Request Successful');
+                    }
+                    
+                }
+            } catch (e) {
+                if (e.response?.status === 401) {
+                    sessionStorage.setItem('last_location', window.location.href);
+                    window.location.href = "/Login";
+                } else {
+                    alert('Something went wrong. Please try again.');
+                }
+        }
     }
-}
 
 async function AddToWishList() {
-    try {
-        let res = await axios.get("/CreateWishList/" + id);
-    } catch (e) {
-        if (e.response?.status === 401) {
-            sessionStorage.setItem('last_location', window.location.href);
-            window.location.href = "/Login";
-        } else {
-            alert('Failed to add to wishlist');
+    try{
+        $(".preloader").delay(90).fadeIn(100).removeClass('loaded');
+        let res = await axios.get("/CreateWishList/"+id);
+        $(".preloader").delay(90).fadeOut(100).addClass('loaded');
+        if(res.status===200){
+            alert("Request Successful")
+        }
+        
+    }catch (e) {
+        if(e.response.status===401){
+            sessionStorage.setItem("last_location",window.location.href)
+            window.location.href="/Login"
         }
     }
 }

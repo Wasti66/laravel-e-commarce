@@ -1,5 +1,5 @@
 @extends('layout.app')
-@section('title', 'Home')
+@section('title', 'Varify')
 @section('contant')
    @include('components.verifyForm')
     @include('components.footer')

@@ -1,5 +1,5 @@
 @extends('layout.app')
-@section('title', 'Home')
+@section('title', 'Login')
 @section('contant')
     @include('components.loginForm')
     @include('components.footer')
