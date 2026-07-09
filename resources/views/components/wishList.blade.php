@@ -104,7 +104,7 @@ async function WishList() {
                         <div class="d-flex mb-3">
                             ${stars}
                         </div>
-
+                        <button class="btn btn-sm btn-danger remove" data-id="${item.product.id}">Remove</button>
                     </div>
 
                 </div>
@@ -114,6 +114,10 @@ async function WishList() {
         $("#byList").append(EachItem);
 
     });
+
+    $("#remove").on('click', function(){
+        
+    })
 
 }
 </script>
