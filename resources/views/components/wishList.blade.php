@@ -115,9 +115,21 @@ async function WishList() {
 
     });
 
-    $("#remove").on('click', function(){
-        
+    $(".remove").on('click', function(){
+        let id = $(this).data('id');
+        WishRemoveList(id);
     })
 
+}
+
+async function WishRemoveList(id){
+    $(".preloader").delay(400).fadeIn(400).removeClass('loaded');
+    let res = await axios.get("/RemoveProductWhsi/"+id);
+    $(".preloader").delay(400).fadeOut(400).addClass('loaded');
+    if(res.status === 200){
+        await WishList();
+    }else{
+        alert("Request Failed");
+    }
 }
 </script>
