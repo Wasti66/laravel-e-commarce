@@ -20,7 +20,7 @@ class InvoiceController extends Controller
         try{
             $user_id = $request->header('id');
             $user_email = $request->header('email');
-            $vat_rate = (float) $request->input('vat', 0);
+            //$vat_rate = (float) $request->input('vat', 0);
 
             $tran_id = uniqid();
             $payment_status = "pending";
@@ -30,20 +30,20 @@ class InvoiceController extends Controller
             $cus_details = "Name : $Profile->cus_name, Address : $Profile->cus_add, City : $Profile->cus_city, Phone : $Profile->cus_phone";
             $ship_details = "Name : $Profile->ship_name, Address : $Profile->ship_add, City : $Profile->ship_city, Phone : $Profile->cus_phone";
 
-            //payable calculation
-            $total =0;
-            $CartList = ProductCart::where('user_id', '=', $user_id)->get();
-            foreach($CartList as $cartItem){
-                $total = $total + $cartItem->price;
+            // Payable Calculation
+            $total=0;
+            $cartList=ProductCart::where('user_id','=',$user_id)->get();
+            foreach ($cartList as $cartItem) {
+                $total=$total+$cartItem->price;
             }
 
-            $vat = round(($total * $vat_rate) / 100, 2);
-            $payble  = round($total + $vat, 2);
+            $vat=($total*3)/100;
+            $payable=$total+$vat;
 
             $Invoice = Invoice::create([
                 'total' => $total,
                 'vat' => $vat,
-                'payble' => $payble,
+                'payble' => $payable,
                 'cus_details' => $cus_details,
                 'ship_details' => $ship_details,
                 'tran_id' => $tran_id,
@@ -53,7 +53,7 @@ class InvoiceController extends Controller
             ]);
 
             $InvoiceID = $Invoice->id;
-            foreach($CartList as $EachProduct){
+            foreach($cartList as $EachProduct){
                 InvoiceProduct::create([
                     'invoice_id'=>$InvoiceID,
                     'product_id'=> $EachProduct['product_id'],
@@ -63,13 +63,13 @@ class InvoiceController extends Controller
                 ]);
             }
 
-            $paymentMethod = SSLCommarze::InitiatePayment($Profile, $payble, $tran_id,$user_email);
+            $paymentMethod = SSLCommarze::InitiatePayment($Profile, $payable, $tran_id,$user_email);
 
             DB::commit();
 
             return ResponseHelper::Out("success", array([
                 'paymentMethod'=>$paymentMethod, 
-                'payble'=> $payble, 
+                'payble'=> $payable, 
                 'vat'=>$vat, 
                 'totla'=>$total
             ]), 200);
@@ -80,7 +80,9 @@ class InvoiceController extends Controller
             return ResponseHelper::Out('fail', $e->getMessage(), 402);
         }
         
-    }
+    } 
+
+
     public function ListInvoice(Request $request){
         $user_id = $request->header('id');
         return Invoice::where('user_id', $user_id)->get();
@@ -101,13 +103,16 @@ class InvoiceController extends Controller
     }
 
     public function PaymentSuccess(Request $request){
-        return SSLCommarze::InitiatSuccess($request->query('tran_id'));
+        SSLCommarze::InitiatSuccess($request->query('tran_id'));
+        return redirect('/profile');
     }
     public function PaymentCancel(Request $request){
-        return SSLCommarze::InitiatCancle($request->query('tran_id'));
+        SSLCommarze::InitiatCancle($request->query('tran_id'));
+        return redirect('/profile');
     }
     public function PaymentFail(Request $request){
-        return SSLCommarze::InitiatFail($request->query('tran_id'));
+        SSLCommarze::InitiatFail($request->query('tran_id'));
+        return redirect('/profile');
     }
     public function PaymentIPN(Request $request){
         return SSLCommarze::InitiatIPN(

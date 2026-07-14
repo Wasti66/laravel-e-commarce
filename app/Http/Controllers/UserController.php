@@ -41,4 +41,7 @@ class UserController extends Controller
                 return  ResponseHelper::Out('fail',null,401);
             }
     }
+    public function UserLogOut(){
+        return redirect("/")->cookie('token','',-1);
+    }
 }

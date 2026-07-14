@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
+    public function ProfilePage(){
+        return view('pages.Profile-Page');
+    }
     public function CreateProfile(Request $request):JsonResponse{
         try{
             $user_id=$request->header('id');

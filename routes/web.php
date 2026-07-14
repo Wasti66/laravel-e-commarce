@@ -21,6 +21,8 @@ Route::get('/by-brand', [BrandController::class,'ByBrandPage']);
 Route::get('/policy', [PolicyController::class,'PolicyPage']);
 Route::get('/details', [ProductController::class, 'detailsPage']);
 Route::get('/wish',[ProductController::class,'wishListPage']);
+Route::get('/cart',[ProductController::class,'CartListPage']);
+Route::get('/profile',[ProfileController::class,'ProfilePage']);
 
 
 //brand List show
@@ -42,6 +44,7 @@ Route::get('/PolicyByType/{type}',[PolicyController::class,'PolicyByType']);
 //User
 Route::get('/UserLogin/{UserEmail}',[UserController::class,'UserLogin']);
 Route::get('/VerifyLogin/{UserEmail}/{OTP}',[UserController::class,'VerifyLogin']);
+Route::get('/logOut',[UserController::class,'UserLogOut']);
 
 //user profile create
 Route::post('/CreateProfile',[ProfileController::class,'CreateProfile'])->middleware([TokenAuthenticate::class]);
@@ -69,7 +72,7 @@ Route::get('/DeleteCartList/{product_id}', [ProductController::class, 'DeleteCar
 
 
 // CreateInvoic
-Route::post('/CreateInvoic', [InvoiceController::class, 'CreateInvoic'])->middleware([TokenAuthenticate::class]);
+Route::get('/CreateInvoic', [InvoiceController::class, 'CreateInvoic'])->middleware([TokenAuthenticate::class]);
 //InvoiceList
 Route::get('/ListInvoice', [InvoiceController::class, 'ListInvoice'])->middleware([TokenAuthenticate::class]);
 //InvoiceProductList

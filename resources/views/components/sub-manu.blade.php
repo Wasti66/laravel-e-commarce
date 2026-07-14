@@ -25,7 +25,30 @@
             <div class="d-flex align-items-center">
                 <!--about link -->
                 <a href="#about" class="text-body fw-medium nav-link">About</a>
-                <a href="#about" class="text-body fw-medium nav-link ms-2">Contact</a>
+                <ul class="list-unstyled d-flex align-items-center mb-0">
+                    @if(Cookie::get('token') !== null)
+                        <li class="me-2">
+                            <a class="text-body fw-medium nav-link ms-3" href="{{ url('/profile') }}">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" height="16" width="16">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                                </svg>
+                                <span>Account</span> 
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="btn btn-danger btn-sm" href="{{ url('/logOut') }}">
+                                Logout
+                            </a>
+                        </li>
+                    @else
+                        <li>
+                            <a class="text-body fw-medium nav-link ms-2" href="{{ url('/Login') }}">
+                                Login
+                            </a>
+                        </li>
+                    @endif
+                </ul>
             </div>
         </div>
     </div>

@@ -22,6 +22,9 @@ class ProductController extends Controller
     public function wishListPage(){
         return view('pages.wish-list-pages');
     }
+    public function CartListPage(){
+        return view('pages.cart-list-page');
+    }
     
     //ListProductByCategory
     public function ListProductByCategory(Request $request):JsonResponse{
