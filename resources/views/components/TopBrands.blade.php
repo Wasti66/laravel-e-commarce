@@ -6,63 +6,39 @@
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum doloribus velit qui repellendus, quasi distinctio.</p>
             </div>
         </div>
-        <!-- top categories -->
-        <div class="swiper-container-wrapper position-relative w-100">
-            <div class="swiper TopBrands">
-                <div class="swiper-wrapper" id="TopBrands">
 
-                </div>
-            </div>
+        <!-- Top Brands -->
+        <div class="row g-4" id="TopBrands">
 
-            <div class="swiper-button-next text-dark" style="margin-right: -40px">
-                <i class="fa-solid fa-angle-right fa-2xl"></i>
-            </div>
-
-            <div class="swiper-button-prev text-dark" style="margin-left: -40px">
-                <i class="fa-solid fa-angle-left fa-2xl"></i>
-            </div>
         </div>
     </div>
 </section>
 
 <script>
-    var swiper = new Swiper(".TopBrands", {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-        breakpoints: {
-            640: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-            },
-            768: {
-                slidesPerView: 4,
-                spaceBetween: 20,
-            },
-            1024: {
-                slidesPerView: 4,
-                spaceBetween: 20,
-            },
-        },
-    });
-    topBrands()
-    async function topBrands(){
+    topBrands();
+
+    async function topBrands() {
         let res = await axios.get("/BrandList");
-         $("#TopBrands").empty()
-         res.data['data'].forEach((item)=>{
-            let EachItem = `<div class="swiper-slide">
-                        <a href="/by-brand?id=${item['id']}" class="overflow-hidden nav-link topcatagoryCard">
-                            <img class="w-100 d-block rounded-circle shadow-sm border" src="${item['brandImg']}" alt="">
-                            <div class="card-img-overlay topcatagoryCard-hover opacity-0 d-flex justify-content-center align-items-center rounded-circle transition h-150 w-150">
-                                <p class="text-danger fw-medium">${item['brandName']}</p>
-                            </div>
-                        </a>
-                    </div>`
-            $("#TopBrands").append(EachItem)    
-            
-         })
+
+        $("#TopBrands").empty();
+
+        res.data.data.forEach((item) => {
+
+            let EachItem = `
+                <div class="col-lg-3 col-md-6 col-12">
+                    <a href="/by-brand?id=${item.id}" class="nav-link text-center">
+                        <img class="img-fluid border shadow-sm"
+                             src="${item.brandImg}"
+                             alt="${item.brandName}">
+
+                        <p class="mt-2 mb-0 fw-medium">
+                            ${item.brandName}
+                        </p>
+                    </a>
+                </div>
+            `;
+
+            $("#TopBrands").append(EachItem);
+        });
     }
 </script>

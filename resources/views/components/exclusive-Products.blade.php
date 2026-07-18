@@ -25,7 +25,7 @@
         <div class="tab-content mt-4" id="nav-tabContent">
             <!-- top -->
             <div class="tab-pane fade show active" id="TopProduct" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
-                <div class="row g-4"></div>
+                <div class="row g-4" id="topRow"></div>
             </div>
             <!-- popular -->
             <div class="tab-pane fade" id="PopularProduct" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
@@ -56,12 +56,17 @@
     </div>
 </section>
 <script>
+    
+
     async function Top(){
         let res = await axios.get("/ListProductByRemark/top");
-        $('#TopProduct').empty();
+        
+        
+        $('#topRow').empty(); 
+        
         res.data['data'].forEach((item,i)=>{
             let EachItem = `<div class="col-lg-3 col-md-6">
-                            <div class="card product-card border-0 overflow-hidden shadow-sm">
+                            <div class="card product-card border-0 overflow-hidden shadow-sm h-100">
 
                                 <!-- IMAGE -->
                                 <div class="position-relative overflow-hidden">
@@ -103,9 +108,10 @@
                                 </div>
                             </div>
                         </div>`
-            $('#TopProduct').append(EachItem);        
+            $('#topRow').append(EachItem);  
         })
-    } 
+    }
+
     async function Popular(){
         let res = await axios.get("/ListProductByRemark/popular");
         $("#popularRow").empty();
